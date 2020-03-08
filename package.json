@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/jyochsna/friend-finder#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "stack": "^0.1.0"
   }
 }
