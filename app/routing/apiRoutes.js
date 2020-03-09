@@ -1,62 +1,50 @@
 // var path = require('path');
-var friendMatch = require('../data/friends.js');
+var friendsList = require('../data/friends.js');
 
 //ROUTING
 // Two Routes with express parameters
 module.exports = function(app) {
    // A GET json route to display all possible friends
   app.get('/api/friends', function (req, res) {
-    res.json(friendMatch);
+    res.json(friendList);
   });
   // A POST route to handle incoming survey results
   app.post('/api/friends', function (req, res) {
 
-    //req.body is available since we're using body-parser middleware
-    var newFriend = req.body;
-    //score loop
-    for(var i = 0; i < newFriend.scores.length; i++) {
-      if(newFriend.scores[i] == "1 (Yes)") {
+    //grabbing new friends score to compare with friends in friendslist array
 
-        newFriend.scores[i] = 1;
-      } else if(newFriend.scores[i] == "3 (No)") {
+    var newFriendScores = req.body.scores;
+    var scoresArray =[];
+    var friendCount = 0;
+    var bestMatch = 0;
 
-        newFriend.scores[i] = 3;
-      } else {
-
-        newFriend.scores[i] = parseInt(newFriend.scores[i]);
-      }
-    }
-    
-    //array for the comparison
-    var comparisonArray = [];
-
-    for(var i = 0; i < friendMatch.length; i++) {
-      //Determine the users most compatible friend
-      var comparedFriend = friendMatch[i];
-      //calculate the totaldifference between friends
-      var totalDifference = 0;
-      
-      for(var k = 0; k < comparedFriend.scores.length; k++) {
-        //return the absolute value of a number *use abs()method
-        var differenceOneScore = Math.abs(comparedFriend.scores[k] - newFriend.scores[k]);
-        totalDifference += differenceOneScore;
+    //run through all current friends in list
+    for(var i=0; i<friendList.length; i++){
+      var scoresDiff = 0;
+      //run through scores to compare friends
+      for(var j=0; j<newFriendScores.length; j++){
+        scoresDiff += (Math.abs(parseInt(friendList[i].scores[j]) - parseInt(newFriendScores[j])));
       }
 
-      comparisonArray[i] = totalDifference;
+      //push results into scoresArray
+      scoresArray.push(scoresDiff);
     }
 
-    var bestFriendNum = comparisonArray[0];
-    var bestFriendI = 0;
-
-    for(var i = 1; i < comparisonArray.length; i++) {
-      if(comparisonArray[i] < bestFriendNum) {
-        bestFriendNum = comparisonArray[i];
-        bestFriendI = i;
+    //after all friends are compared, find best match
+    for(var i=0; i<scoresArray.length; i++){
+      if(scoresArray[i] <= scoresArray[bestMatch]){
+        bestMatch = i;
       }
     }
-    //push new friend
-    friendMatch.push(newFriend);
-    //json bf to the current friend match array
-    res.json(friendMatch[bestFriendI]);
+
+    //return bestMatch data
+    var bff = friendList[bestMatch];
+    res.json(bff);
+
+    //pushes new submission into the friendsList array
+    friendList.push(req.body);
   });
 };
+
+    //req.body is available since we're using body-parser middleware
+    
