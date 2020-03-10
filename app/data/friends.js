@@ -2,7 +2,7 @@
 var friendsList = [
     {
         "name":"Ahmed",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://m.media-amazon.com/images/M/MV5BMTk0ODI2NTEzMl5BMl5BanBnXkFtZTcwNDY5MjI3NA@@.jpg",
         "scores":[
             5,
             1,
@@ -19,7 +19,7 @@ var friendsList = [
 
       {
         "name":"pooja",
-        "photo":"pooja.jpg",
+        "photo":"https://m.media-amazon.com/images/M/MV5BMTk0ODI2NTEzMl5BMl5BanBnXkFtZTcwNDY5MjI3NA@@.jpg",
         "scores":[
             2,
             1,
@@ -36,7 +36,7 @@ var friendsList = [
 
       {
         "name":"trisna",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://m.media-amazon.com/images/M/MV5BMTk0ODI2NTEzMl5BMl5BanBnXkFtZTcwNDY5MjI3NA@@.jpg",
         "scores":[
             3,
             1,
@@ -53,7 +53,7 @@ var friendsList = [
 
       {
         "name":"kanji",
-        "photo":"https://media.flower.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://m.media-amazon.com/images/M/MV5BMTk0ODI2NTEzMl5BMl5BanBnXkFtZTcwNDY5MjI3NA@@.jpg",
         "scores":[
             1,
             2,
@@ -71,7 +71,7 @@ var friendsList = [
 
       {
         "name":"rose",
-        "photo":"https://media.cdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://m.media-amazon.com/images/M/MV5BMTk0ODI2NTEzMl5BMl5BanBnXkFtZTcwNDY5MjI3NA@@.jpg",
         "scores":[
             1,
             5,

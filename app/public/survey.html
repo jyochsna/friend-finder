@@ -153,7 +153,7 @@
           <div class="modal-content">
             <h4>Meet Your New BFF</h4>
             <h5 id="matchName"></h5>
-            <img id="matchPic" src="" alt="No Image" width = 250px>
+            <img id="matchPic" src="images/image4.jpg" alt="No Image" width = 250px>
           </div>
         <div class="modal-footer">
           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Done</a>
@@ -189,7 +189,7 @@ $(document).ready(function() {
             //creates a new friend from the values submitted
             var newFriend = {
                 name: $('#name').val().trim(),
-                profilePic: $('#photo').val().trim(),
+                photo: $('#photo').val().trim(),
                 scores: [
                     $('#q1').val(),
                     $('#q2').val(),
@@ -209,9 +209,12 @@ $(document).ready(function() {
 
             //AJAX posts the data to friends API.
             $.post(currentURL + "/api/friends", newFriend, function(data) {
+              console.log("-----------");
+              console.log(data);
+              console.log("-----------------");
                 //Grab the result from the AJAX post so that the best match's name and photo are displayed.
                 $("#matchName").text(data.name);
-                $("#matchPic").attr("src", data.profilePic);
+                $("#matchPic").attr("src", data.photo);
 
             });
             // Show the modal with the best match

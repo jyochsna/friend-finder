@@ -1,5 +1,5 @@
 // var path = require('path');
-var friendsList = require('../data/friends.js');
+var friendList = require('../data/friends.js');
 
 //ROUTING
 // Two Routes with express parameters
